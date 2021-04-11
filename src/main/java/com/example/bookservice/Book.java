@@ -14,7 +14,7 @@ public class Book {
     private String writer;
     private String type;
     private int published;    
-    //private String language;
+    private String language;
 
     public Integer getId() {
         return id;
@@ -59,14 +59,14 @@ public class Book {
         published = year;
     }
 
-    /* public void setLanguage(String s)
+    public void setLanguage(String s)
     {
         language  = s;
     }
     public String getLanguage()
     {
         return language;
-    } */
+    }
 
 
     

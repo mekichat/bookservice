@@ -62,7 +62,7 @@ public class BookServiceController {
         dbBook.setWriter(updatedBook.getWriter());
         dbBook.setType(updatedBook.getType());        
         dbBook.setPublished(updatedBook.getPublished());
-        //dbBook.setLanguage(updatedBook.getLanguage());
+        dbBook.setLanguage(updatedBook.getLanguage());
 
         bookRepository.save(dbBook);       
 
@@ -93,10 +93,10 @@ public class BookServiceController {
                 dbBook.setType(updatedBook.getType());
     
             }
-            /* if(updatedBook.getLanguage() != null){
+            if(updatedBook.getLanguage() != null){
                 dbBook.setLanguage(updatedBook.getLanguage());
     
-            }  */
+            } 
             
             bookRepository.save(dbBook);
             return ResponseEntity.ok().build(); 
