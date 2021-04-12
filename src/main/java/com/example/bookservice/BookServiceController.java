@@ -109,7 +109,7 @@ public class BookServiceController {
       
     }
 
-    @DeleteMapping(path="/book/{id}", consumes = "application/json")
+    @DeleteMapping(path="/book/{id}")
     @CrossOrigin(origins ="*")
     ResponseEntity<Void> deleteBook(@PathVariable Integer id){
         Book deleteBook = bookRepository.findById(id).get();
