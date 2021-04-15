@@ -16,6 +16,25 @@ public class Book {
     private int published;    
     private String language;
 
+    public Integer calculateBookPrice(int numberOfBooks)
+    {
+        int initialPrice = 0;
+       
+        if(published <= 1950){
+            initialPrice = 100;
+        }
+        else if(published > 1950 & published <= 2000){
+            initialPrice = 200;
+        }
+        else if(published > 2000 & published <= 2020){
+            initialPrice = 300;
+        }
+        else{
+            initialPrice = 400;
+        }
+        return initialPrice * numberOfBooks;            
+    }
+
     public Integer getId() {
         return id;
       }
