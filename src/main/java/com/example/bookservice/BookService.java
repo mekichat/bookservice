@@ -41,7 +41,6 @@ public class BookService {
         .toUri();
 
         return ResponseEntity.created(location).build();
-
     }
 
     Book update(@PathVariable Integer id, @RequestBody Book updatedBook){
@@ -52,38 +51,29 @@ public class BookService {
         dbBook.setPublished(updatedBook.getPublished());
         dbBook.setLanguage(updatedBook.getLanguage());
 
-        bookServiceRepository.save(dbBook);       
-
+        bookServiceRepository.save(dbBook);
         return dbBook;
-
     }
 
     ResponseEntity<Void> partialUpdate(@PathVariable Integer id, @RequestBody Book updatedBook) {
-
         Book dbBook = bookServiceRepository.findById(id).get();
 
         try {
             if(updatedBook.getTitle() != null){
-                dbBook.setTitle(updatedBook.getTitle());
-    
+                dbBook.setTitle(updatedBook.getTitle());    
             }
             if(updatedBook.getPublished()!= 0){ 
-                dbBook.setPublished(updatedBook.getPublished());
-    
+                dbBook.setPublished(updatedBook.getPublished());    
             }
             if(updatedBook.getWriter()!= null){ 
-                dbBook.setWriter(updatedBook.getWriter());
-    
+                dbBook.setWriter(updatedBook.getWriter());    
             }            
             if(updatedBook.getType() != null){
-                dbBook.setType(updatedBook.getType());
-    
+                dbBook.setType(updatedBook.getType());    
             }
             if(updatedBook.getLanguage() != null){
-                dbBook.setLanguage(updatedBook.getLanguage());
-    
-            } 
-            
+                dbBook.setLanguage(updatedBook.getLanguage());    
+            }             
             bookServiceRepository.save(dbBook);
             return ResponseEntity.ok().build(); 
             
@@ -91,8 +81,7 @@ public class BookService {
             //TODO: handle exception
             System.out.println(ex);
             return ResponseEntity.notFound().build();
-        }
-      
+        }      
     }
 
     ResponseEntity<Void> delete(@PathVariable Integer id){
@@ -104,8 +93,6 @@ public class BookService {
             //TODO: handle exception
             System.out.println(ex);
             return ResponseEntity.notFound().build();
-        }        
-
+        }
     }
-
 }
